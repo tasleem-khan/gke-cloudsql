@@ -57,5 +57,12 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us-west1-docker.pkg.dev/$PROJECT_ID/gke-cloud-sql-repo/gke-sql:latest']
 
+  - name: 'gcr.io/cloud-builders/kubectl'
+    id: Deploy
+    args:
+    - 'apply'
+    - '-f'
+    - 'deployment.yaml ingress.yaml'  
+
 options:
   logging: CLOUD_LOGGING_ONLY    
