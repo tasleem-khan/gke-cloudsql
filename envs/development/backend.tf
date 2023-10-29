@@ -1,7 +1,7 @@
 
 terraform {
   backend "gcs" {
-    bucket = "gke-cloudsql"
+    bucket = "gke-cloudsql-demo"
     prefix = "terraform/environments/development"
   }
 }
