@@ -41,7 +41,7 @@ steps:
     - | 
         if [ "$BRANCH_NAME" = "main" ]; then
           cd envs/development    
-          terraform apply -auto-approve
+          # terraform apply -auto-approve
         else
           echo "***************************** SKIPPING APPLYING *******************************"
           echo "Branch  does not represent an official environment."
@@ -57,15 +57,22 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'us-west1-docker.pkg.dev/$PROJECT_ID/gke-cloud-sql-repo/gke-sql:latest']
 
-  - name: 'gcr.io/cloud-builders/kubectl'
-    id: Deploy
+  # - name: 'gcr.io/cloud-builders/kubectl'
+  #   id: Deploy
+  #   args:
+  #   - 'apply'
+  #   - '-f'
+  #   - 'database-sql/deployment.yaml' 
+  #   env:
+  #   - 'CLOUDSDK_COMPUTE_REGION=us-west1'
+  #   - 'CLOUDSDK_CONTAINER_CLUSTER=private-cluster' 
+
+  - name: "gcr.io/cloud-builders/gke-deploy"
     args:
-    - 'apply'
-    - '-f'
-    - 'database-sql/deployment.yaml database-sql/ingress.yaml' 
-    env:
-    - 'CLOUDSDK_COMPUTE_REGION=us-west1'
-    - 'CLOUDSDK_CONTAINER_CLUSTER=private-cluster' 
+    - run
+    - --filename=database-sql/deployment.yaml
+    - --location=us-west1
+    - --cluster=private-cluster
 
 options:
   logging: CLOUD_LOGGING_ONLY    
