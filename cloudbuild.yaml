@@ -71,6 +71,7 @@ steps:
     args:
     - run
     - --filename=database-sql/deployment.yaml
+    - --filename=database-sql/service.yaml
     - --filename=database-sql/ingress.yaml
     - --location=us-west1
     - --cluster=private-cluster
