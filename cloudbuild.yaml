@@ -62,7 +62,7 @@ steps:
     args:
     - 'apply'
     - '-f'
-    - 'deployment.yaml ingress.yaml' 
+    - 'database-sql/deployment.yaml database-sql/ingress.yaml' 
     env:
     - 'CLOUDSDK_COMPUTE_REGION=us-west1'
     - 'CLOUDSDK_CONTAINER_CLUSTER=private-cluster' 
