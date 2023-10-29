@@ -1,0 +1,61 @@
+steps:
+
+  - id: 'tf init envs-development'
+    name: 'hashicorp/terraform:1.3.0'
+    entrypoint: 'sh'
+    args: 
+    - '-c'
+    - |
+        if [ "$BRANCH_NAME" = "main" ]; then
+          cd envs/development
+          terraform init
+        else
+          echo "***************************** SKIPPING INIT *******************************"
+          echo "Branch  does not represent an official environment."
+          echo "*******************************************************************************"
+        fi  
+
+  # [START tf-plan]
+  - id: 'tf plan envs-development'
+    name: 'hashicorp/terraform:1.3.0'
+    entrypoint: 'sh'
+    args: 
+    - '-c'
+    - | 
+        if [ "$BRANCH_NAME" = "main" ] && [ -d "0-folder-projects/envs/development" ]; then
+          cd envs/development
+          terraform plan
+        else
+          echo "***************************** SKIPPING PLAN *******************************"
+          echo "Branch  does not represent an official environment."
+          echo "*******************************************************************************"
+        fi  
+  # [END tf-plan]
+
+  # [START tf-apply]
+  - id: 'tf apply 0-folder-projects'
+    name: 'hashicorp/terraform:1.3.0'
+    entrypoint: 'sh'
+    args: 
+    - '-c'
+    - | 
+        if [ "$BRANCH_NAME" = "main" ] && [ -d "0-folder-projects/envs/development" ]; then
+          cd envs/development    
+          terraform apply -auto-approve
+        else
+          echo "***************************** SKIPPING APPLYING *******************************"
+          echo "Branch  does not represent an official environment."
+          echo "*******************************************************************************"
+        fi
+  # [END tf-apply] 
+  # Docker Build
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 
+           'us-west1-docker.pkg.dev/$PROJECT_ID/gke-cloud-sql-repo/gke-sql:latest', 'database-sql/']
+
+  # Docker push to Google Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-west1-docker.pkg.dev/$PROJECT_ID/gke-cloud-sql-repo/gke-sql:latest']
+
+options:
+  logging: CLOUD_LOGGING_ONLY    

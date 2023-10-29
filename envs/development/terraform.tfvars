@@ -1,0 +1,5 @@
+environment         = "development"
+remote_state_bucket = "gke-cloudsql"
+org_id              = "906927793089"
+billing_account     = "012BAE-CAC265-849A70"
+project_id          = "tasleem-project-trial-project"
