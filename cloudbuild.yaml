@@ -67,7 +67,8 @@ steps:
   #   - 'CLOUDSDK_COMPUTE_REGION=us-west1'
   #   - 'CLOUDSDK_CONTAINER_CLUSTER=private-cluster' 
 
-  - name: "gcr.io/cloud-builders/gke-deploy"
+  - id: 'GKE DEPLOY 1'
+    name: "gcr.io/cloud-builders/gke-deploy"
     args:
     - run
     - --filename=database-sql/deployment.yaml
@@ -76,12 +77,13 @@ steps:
     - --location=us-west1
     - --cluster=private-cluster
 
-    - name: "gcr.io/cloud-builders/gke-deploy"
-    args:
-    - run
-    - --filename=database-sql/service.yaml
-    - --location=us-west1
-    - --cluster=private-cluster
+    - id: 'GKE DEPLOY 2'
+      name: "gcr.io/cloud-builders/gke-deploy"
+      args:
+      - run
+      - --filename=database-sql/service.yaml
+      - --location=us-west1
+      - --cluster=private-cluster
 
 options:
   logging: CLOUD_LOGGING_ONLY    
