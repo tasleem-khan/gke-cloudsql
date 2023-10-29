@@ -22,7 +22,7 @@ steps:
     args: 
     - '-c'
     - | 
-        if [ "$BRANCH_NAME" = "main" ] && [ -d "0-folder-projects/envs/development" ]; then
+        if [ "$BRANCH_NAME" = "main" ]; then
           cd envs/development
           terraform plan
         else
@@ -39,7 +39,7 @@ steps:
     args: 
     - '-c'
     - | 
-        if [ "$BRANCH_NAME" = "main" ] && [ -d "0-folder-projects/envs/development" ]; then
+        if [ "$BRANCH_NAME" = "main" ]; then
           cd envs/development    
           terraform apply -auto-approve
         else
