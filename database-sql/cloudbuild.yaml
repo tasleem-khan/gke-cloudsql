@@ -1,0 +1,9 @@
+steps:
+  # Docker Build
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 
+           'us-west1-docker.pkg.dev/$PROJECT_ID/gke-cloud-sql-repo/gke-sql:latest', '.']
+
+  # Docker push to Google Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-west1-docker.pkg.dev/$PROJECT_ID/gke-cloud-sql-repo/gke-sql:latest']
