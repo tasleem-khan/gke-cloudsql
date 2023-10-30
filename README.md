@@ -3,6 +3,9 @@
 
 This repo contains the Go source code for a simple web app that can be deployed to App Engine Standard. It is a demonstration of how to connect to a Postgres instance in Cloud SQL.
 
+## DESIGN
+![Screenshot](https://github.com/tasleem-khan/gke-cloudsql/blob/main/docs/images/GKE-CLOUDSQL.png)
+
 ## Requirements
 
 1. Clone this repo.
