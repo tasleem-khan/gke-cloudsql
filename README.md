@@ -5,6 +5,7 @@ This repo contains the Go source code for a simple web app that can be deployed 
 
 ## DESIGN
 ![alt text](https://github.com/tasleem-khan/gke-cloudsql/blob/main/docs/images/GKE-CLOUDSQL.png?raw=true)
+<img src="https://github.com/tasleem-khan/gke-cloudsql/blob/main/docs/images/GKE-CLOUDSQL.png" height="60" width="60" >
 
 ## Requirements
 
