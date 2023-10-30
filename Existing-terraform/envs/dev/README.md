@@ -17,7 +17,7 @@ Before using this Terraform script, you need to:
 | <a name="provider_time"></a> [time](#provider\_time) | n/a |
 
 ## Resource and Module Description
-1. Module: project-services                         - This module enables Google Cloud services in your project
+<pre>1. Module: project-services                         - This module enables Google Cloud services in your project</pre>
 2. Module: vpc                                      - This module creates a GCP Virtual Private Cloud (VPC)
 3. Resource: google_compute_firewall                - This resource defines a firewall rule to allow SSH access
 4. Resource: google_compute_instance                - This resource creates an instance (exemplar) with a startup script
