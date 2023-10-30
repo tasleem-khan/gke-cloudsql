@@ -9,10 +9,10 @@ This repo contains the Go source code for a simple web app that can be deployed 
 
 
 
-## Requirements
+## Steps
 
 1. Clone this repo.
-2. upload into your private git repository.
+2. Upload into your private git repository.
 3. Connect Repository using cloud build. choose cloudbuild.yaml file for configuration.
 4. Create trigger.
 5. Make Sure you provide enough Iam permissions to your service account for cloud build.(cloud sql client,network admin,Iam service account creator,GKE admin).
