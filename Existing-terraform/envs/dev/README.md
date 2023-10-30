@@ -18,15 +18,15 @@ Before using this Terraform script, you need to:
 
 ## Resource and Module Description
 <pre>1. Module: project-services                         - This module enables Google Cloud services in your project</pre>
-2. Module: vpc                                      - This module creates a GCP Virtual Private Cloud (VPC)
-3. Resource: google_compute_firewall                - This resource defines a firewall rule to allow SSH access
-4. Resource: google_compute_instance                - This resource creates an instance (exemplar) with a startup script
-5. Resource: google_compute_snapshot                - This resource creates a snapshot
-6. google_compute_image                             - This resource creates a GCP Compute Engine image
-7. Resource: google_compute_instance_template       - This resource defines an instance template
-8. Resource: google_compute_target_pool             - This resource defines a target pool
-9. Resource: google_compute_health_check            - This resource defines a health check
-10.Resource: google_compute_instance_group_manager  - This resource defines an instance group manager
+<pre>2. Module: vpc                                      - This module creates a GCP Virtual Private Cloud (VPC)</pre>
+<pre>3. Resource: google_compute_firewall                - This resource defines a firewall rule to allow SSH access</pre>
+<pre>4. Resource: google_compute_instance                - This resource creates an instance (exemplar) with a startup script</pre>
+<pre>5. Resource: google_compute_snapshot                - This resource creates a snapshot</pre>
+<pre>6. google_compute_image                             - This resource creates a GCP Compute Engine image</pre>
+<pre>7. Resource: google_compute_instance_template       - This resource defines an instance template</pre>
+<pre>8. Resource: google_compute_target_pool             - This resource defines a target pool</pre>
+<pre>9. Resource: google_compute_health_check            - This resource defines a health check</pre>
+<pre>10.Resource: google_compute_instance_group_manager  - This resource defines an instance group manager</pre>
 
 ## Modules
 
