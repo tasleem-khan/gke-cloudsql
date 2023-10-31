@@ -96,6 +96,6 @@ This repo contains the Go source code for a simple web app that can be deployed 
 
 | Name | Description |
 |------|-------------|
-| <a name="output_cloud-sql"></a> [cloud-sql](#output\_cloud-sql) | n/a |
-| <a name="output_vpc_link"></a> [vpc\_link](#output\_vpc\_link) | n/a |
+| <a name="output_cloud-sql"></a> [cloud-sql](#output\_cloud-sql) | Connection name output for Cloud sql instance |
+| <a name="output_vpc_link"></a> [vpc\_link](#output\_vpc\_link) | Custom VPC Link |
 <!-- END_TF_DOCS -->
